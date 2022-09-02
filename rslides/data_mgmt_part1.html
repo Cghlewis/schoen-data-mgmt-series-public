@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Management Overview: Session 1</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="  Crystal Lewis" />
+    <script src="data_mgmt_part1_files/header-attrs/header-attrs.js"></script>
+    <link href="data_mgmt_part1_files/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="data_mgmt_part1_files/tile-view/tile-view.js"></script>
+    <script src="data_mgmt_part1_files/kePrint/kePrint.js"></script>
+    <link href="data_mgmt_part1_files/lightable/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+
+
+class: inverse, left, middle
+
+background-image: url(img/cover2.png)
+
+# Data Management Overview: Session 1
+## Training for Schoen Research
+
+----
+
+## Crystal Lewis
+
+Slides available on [<svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>](https://cghlewis.github.io/schoen-data-mgmt-series-public/)
+
+---
+
+# About me
+
+* Data Manager for Missouri Prevention Science Institute for 8 years. Oversaw data management for 8 large-scale federally funded RCTs.
+
+* Developed a passion for learning about and teaching others best practices in data management.
+
+* Created a **[website](https://cghlewis.github.io/mpsi-data-training/)** with a series of modules around data management in education research. Now turning the website into a open-source book.
+
+* I am also an R enthusiast. I am a co-organizer for the **[St. Louis chapter of R-Ladies](https://www.meetup.com/rladies-st-louis/)**, a worldwide organization whose mission is to promote Gender Diversity in the R community.
+
+* I also lead the Data Management group for **[POWER](https://www.womeninedresearch.com/)**, providing opportunities for women in education research. 
+
+* You can read more about me and my projects on **[GitHub](https://github.com/Cghlewis)**.
+
+---
+background-image: url(img/greeting.jpg)
+background-size: cover
+
+# Introductions
+
+
+.footnote[[Photo by Bundo Kim on Unsplash](https://unsplash.com/photos/NIKl5WwL-RE)]
+
+
+---
+
+class: inverse, center, middle
+
+&gt; If the data you need still exists;  
+If you found the data you need;  
+If you understand the data you found;  
+If you trust the data you understand;  
+If you can use the data you trust;  
+Someone did a good job of data management.  
+
+&gt; &lt;footer&gt;--- Rex Sanders - USGS-Santa Cruz&lt;/footer&gt;
+
+---
+
+# Plan for this series
+
+.pull-left[
+Session 1
+* Data flow
+* Documentation
+
+Session 2
+* Creating instruments
+* Tracking data
+* Capturing and storing data
+* Preparing to clean and validate data
+]
+
+.pull-right[
+
+Session 3-6
+* Getting acclimated with R and RStudio
+* Understanding objects and functions
+* Setting up a reproducible syntax file
+* Cleaning data with R
+* Validating data with R
+
+&lt;img src="img/r-project.svg" width="300px" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+---
+
+# What this series is and is not
+
+.pull-left[
+**What it is**:
+
+1. Taking us from planning data collection to cleaning data
+2. Best practices to collect data that requires as minimal "cleaning" as possible
+3. How to wrangle data into a clean format for sharing with a broad audience.
+  - Clear variable names
+  - Clear variable labels
+  - Clear value labels
+  - Accurate values 
+  - De-identified
+]
+
+.pull-right[
+**What it is not**:
+
+1. Writing a data management plan
+2. Detailed project planning or assigning of roles
+3. Creating Documentation for data sharing
+  - Codebooks
+  - Project level documentation
+4. Data Sharing
+  - What, how, where to share data
+5. Data Analysis
+]
+
+---
+
+
+# Disclaimers and Expectations
+
+.pull-left[
+Disclaimers:
+
+* There is more to data management
+* You may already know some of this
+* All use of names or measures are just for demonstration purposes
+* Our terminology may be different
+
+Expectations:
+
+* Please ask questions
+* Please share your ideas
+* A second monitor will be helpful for the R portion
+]
+.pull-right[
+&lt;img src="img/cat_hand.jpg" width="300px" style="display: block; margin: auto;" /&gt;
+]
+
+.footnote[Source: [amazon.com](https://www.amazon.com/Raising-Hand-Funny-Graduation-Card/dp/B00TQZKMKI)]
+
+
+
+---
+
+background-image: url(img/step1.PNG)
+background-size: cover
+
+
+---
+
+
+background-image: url(img/step2.PNG)
+background-size: cover
+
+---
+
+background-image: url(img/step3.PNG)
+background-size: cover
+
+
+---
+
+background-image: url(img/step4.PNG)
+background-size: cover
+
+
+---
+
+background-image: url(img/step5.PNG)
+background-size: cover
+
+
+---
+
+# Data Management Cycle
+
+- &lt;span style = 'font-size: 150%;'&gt;<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#782F40;overflow:visible;position:relative;"><path d="M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z"/></svg>&lt;/span&gt;  These phases happen every data collection wave.
+
+- &lt;span style = 'font-size: 150%;'&gt;<svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#782F40;overflow:visible;position:relative;"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></svg>&lt;/span&gt;  It is best practice to do each step **EVERY** wave.
+
+- &lt;span style = 'font-size: 150%;'&gt;<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#782F40;overflow:visible;position:relative;"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"/></svg>&lt;/span&gt;  Waiting until the end of the study to track, document, clean and validate your data can have consequences.
+
+  - If you don't track until the end, you miss out on the opportunity to discover missing data and the chance to still collect that data
+  
+  - If you don't clean until the end, you miss the chance to revise any errors in your data collection instruments, and therefore may be creating unusable data
+  
+  - If you don't clean, you won't be able to access data when you need it. You will need to notify someone of your need and then wait for the data to be prepared.
+  
+
+  
+---
+
+# Phases of the data cycle
+
+.pull-left[
+1. **Documentation**
+  - **Style Guide**
+  - **Protocol**
+  - **Timeline**
+  - **ReadMe**
+  - **Data Dictionary**
+
+2. Instrument Creation
+
+3. Collecting - not covering this
+
+4. Tracking
+
+5. Capture and Store
+
+6. Writing a data cleaning plan
+]
+
+.pull-right[
+
+&lt;img src="img/step5.PNG" width="1500px" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+
+---
+
+background-image: url(img/lifecycle.PNG)
+background-size: cover
+
+
+---
+
+## Why implement best practices?
+
+1. Makes our work reproducible
+  - "Reproducible research is the by-product of careful attention to data management practices throughout the entire lifecycle of a project" - **[A Beginner's Guide to Conducting Reproducible Research](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/bes2.1801)**, Alston &amp; Rick
+  - Replication Crisis that has been going on for over a decade 
+      - Ex: A **[2015 study](https://www.science.org/doi/10.1126/science.aac4716)** conducted replications of 100 psychology studies and was only able to replicate 39 of them  
+  - Practices that contribute to reproducibility include  
+      - Data Dictionary  
+      - Style Guide  
+      - Protocols
+      - Creating a data cleaning plan  
+      - Syntax writing  
+
+---
+
+## Why implement best practices?
+
+2\. Creates reliable work
+  - Humans are fallible
+  - [**The Role of Human Fallibility in Psychological Research: A Survey of Mistakes in Data Management**](https://journals.sagepub.com/doi/full/10.1177/25152459211045930), Kovacs, Hoekstra &amp; Ackzel
+  
+.pull-left[
+Mistake Types and Their Reported Causes
+&lt;img src="img/serious_cause.png" width="475px" style="display: block; margin: auto;" /&gt;
+] 
+
+.pull-right[
+Mistake Types and Their Reported Outcomes
+&lt;img src="img/serious_mistake.png" width="475px" style="display: block; margin: auto;" /&gt;
+]
+
+
+
+---
+
+## Why implement best practices?
+
+2\. Creates reliable work - cont.
+  - There is an entire blog, **[Retraction Watch](https://retractionwatch.com/)**, dedicated to monitoring scientific journal retractions
+      - While there are varying reasons to retract an article, unreliable data is a top reason for article retractions
+  - Practices that contribute to reliable data include:
+      - Keeping one source of truth in participant data tracking
+      - Versioning data
+      - Validity checks
+
+3\. Keeps data secure
+  - Data security is required by both the IRB and funders
+  - Incidents where data is not stored properly could lead to lost, destroyed, or unusable data as well as breaches of confidentiality
+  - Practices to support data security include:
+      - Storing paper and electronic data according to IRB rules
+      - De-identifying data
+      - Training staff on data security and require data access and use agreements
+      - Assigning roles and responsibilities
+
+---
+
+class: center, middle, inverse
+
+# Documentation
+
+---
+
+## Documentation
+
+.pull-left[
+
+**Why start documentation before a project begins?**
+
+* It is a roadmap for where you are going.
+  - What measures are you collecting? Who gets those measures and when?
+  - How will we name and code those measures?
+  - What are acceptable values?
+
+* Make decisions replicable
+  - Hand over documentation to new team members
+  
+* Helps with recall 
+  - What decisions did you make, when, and why
+]
+
+
+.pull-right[
+
+**Why document for internal users?**
+
+* Creates standardization/fidelity
+  - Consistent naming and coding across forms and time
+  - Consistent processes to gather data
+* Helps you discover errors in your data
+
+  - Catch questions you accidentally left off of a survey
+  - Catch values out of range
+  
+* Reduces data rot
+  - With so many transformations over time, data becomes unusable if you don't track that information
+]
+
+
+
+---
+
+
+# Style Guide - A Scenario
+
+You need to access the data dictionary for Project A, so you start to look around in the Project A directory
+
+&lt;img src="img/batman.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+.footnote[Source: [tenor.com](https://tenor.com/view/batman-hmmm-thinking-one-second-let-me-think-gif-5454647)]
+
+---
+
+class: inverse
+
+# Style Guide - A Scenario
+
+What folder do you look in? What questions do you have?
+
+* 📁 project-a
+  * 📂 Mary's Dissertation
+  * 📂 Entry Files
+  * 📂 From Data Computer
+  * 📁 IOA re-entry for Volunteers
+  * 📁 project-a
+  * 📂 project-a data2
+  * 📂 video coding
+  * 📂 Catherine
+  * 📁 propensity scoring
+  * 📁 Frank's dissertation
+  * 📄 Measures Documentation.docx
+  * 📄 Measures for papers_in progress by Terrance.docx
+  * 📄 Timeline for projects.xlsx
+
+
+---
+
+class: inverse
+
+# Style Guide - A Scenario
+
+You make your way into the *project-a data2* folder and you find a *data documentation* folder
+
+What file do you choose?
+
+
+* 📂 data documentation
+  * 📄 data dictionary_backup.xlsx
+  * 📄 data dictionary_backup backup.xlsx
+  * 📄 data dictionary_FINAL.xlsx
+  * 📄 data dictionary_11.05.2020.xlsx
+  * 📄 data dictionary_11.05.2020_AS edits.xlsx
+  * 📄 data dictionary 11.06.2020_AS edits FINAL.xlsx
+  * 📄 data dictionary 11.07.2020_AS JT edits_FINAL.xlsx
+
+---
+
+# Style Guide - A Scenario
+
+You open the data dictionary
+
+Are these variable names clear without the dictionary?
+
+Are the value codes clear without the dictionary?
+
+&lt;br&gt;
+
+&lt;table class="table table-striped" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; var_name &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; question &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Q1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; What is your gender &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0=female, 1=male, 2=non-binary &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Q2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; What is your age? &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0-100 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Q3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; What grade are you in? &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1,2,3,4,5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Q4_1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; I pay attention in class &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1=SD, 2=D, 15=A, 16=SA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Q4_2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; I try hard to do well in this class &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1=SD, 2=D, 15=A, 16=SA &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+
+# Style Guide
+
+*A [style guide](https://hwpi.harvard.edu/files/sdp/files/sdp-toolkit-coding-style-guide.pdf) is a document that provides a set of standards for how you work with your data.*
+
+.pull-left[
+Purpose:
+  - Improves searchability
+  - Standardization within and across projects
+  - It allows for clear interpretation
+  - It contributes to the reproducibility of your work
+]
+.pull-right[
+
+Categories to include in your style guide:
+  - Folder/Directory structure
+  - File naming
+  - Variable naming
+  - Value coding
+]
+
+
+&lt;br&gt;
+
+**This can be created in any file format: PDF, txt, Word, Markdown**
+
+
+---
+
+class: inverse
+
+# Style Guide - Directory Structure
+
+* 📂 project-new
+  * 📁 documentation
+      * 📄 project-new_data-dictionary_v05.xlsx
+      * 📄 project-new_codebook_v02.pdf
+  * 📂 data
+      * 📁 cohort-1
+          * 📂 raw
+              * 📄 c1_stu_svy_download_2020-11-05.csv
+          * 📂 syntax
+              * 📄 c1_stu_svy_cleaning-script_v01.R
+          * 📁 clean
+              * 📄 c1_stu_svy_clean_v01.csv
+  * 📁 tracking
+      * 📂 cohort-1
+          * 📂 participant-database
+              * 📄 c1_particpant-db_v01.sqlite
+
+---
+
+class: inverse
+
+# Directory Structure - File Paths
+
+### Every document has a file path
+
+* 📁 project-new
+  + 📁 documentation
+      + 📄 project-new_data-dictionary_v05.xlsx
+      + 📄 project-new_codebook_v02.pdf
+
+
+
+--
+
+In Windows:
+
+* project-new\documentation\project-new_data-dictionary_v05.xlsx
+* project-new\documentation\project-new_codebook_v02.pdf
+
+--
+
+On Mac:
+
+* project-new/documentation/project-new_data-dictionary_v05.xlsx
+* project-new/documentation/project-new_codebook_v02.pdf
+
+
+---
+
+
+# Directory Structure - File Paths
+
+Your file paths live within a home directory
+
+* If you are storing files on your computer, your home folder is most likely your username. 
+  * **Windows**: C:\Users\username
+  * **Mac**: Users/username
+  
+
+
+--
+
+So the full file path for our previously mentioned data dictionary may be:
+  * C:\Users\username\project-new\documentation\project-new_data-dictionary_v05.xlsx  
+  
+  OR  
+  
+  * /Users/username/project-new\documentation\project-new_data-dictionary_v05.xlsx
+
+
+
+---
+
+# Directory Structure - File Paths
+
+To find your full file paths
+
+.pull-left[
+On Windows you can simply click into the *address bar* to see your path
+
+![](img/path2.png)
+
+]
+
+.pull-right[
+Or right click on a document and go to *properties* and then *security*
+&lt;br&gt;
+
+![](img/properties.png)
+]
+
+---
+
+# Style Guide - Directory Structure
+
+
+* Allow you to find files easier
+  + Which path is more descriptive?
+      - **SG**: W:\project-a\data\cohort-1\student\survey\raw
+      - **No SG**: W:\Project-a\data2 New
+
+--
+
+* Allow your computer to find files easier
+  + Which path is more machine readable?
+      - **SG**: W:\project-a\data\cohort-1\student\survey\raw
+      - **No SG**: W:\Project A\Data\Cohort 1\student\Survey.raw
+
+--
+
+* Maintain reproducibility in your data management tasks (consistent file paths)
+  + Which file paths maintain reproducibility across time?
+      - **SG**: W:\project-a\data\cohort-1\stu\svy **and** W:\project-a\data\cohort-2\stu\svy
+      - **No SG**: W:\project-a\data\cohort-1\stu\svy **and** W:\project-a\data\cohort-2\&lt;span style="color: blue; "&gt;svy&lt;/span&gt;\&lt;span style="color: blue; "&gt;stu&lt;/span&gt;
+      - **No SG**: W:\project-a\data\cohort-1\stu\svy **and** W:\project-a\data\cohort-2\stu\&lt;span style="color: blue; "&gt;Srvy&lt;/span&gt;
+
+
+--
+
+* Data security (limiting carte blanche access)
+  + Which path is easier to maintain security?
+      - **SG**: W:\project-a\data
+      - **No SG**: W:\project-a
+
+---
+
+# Style Guide - Directory Structure - Rules
+
+* Strike a balance between deep and shallow
+
+  + Too shallow leads to many files in one folder
+  + Too deep leads to too many clicks and file paths that are too long
+  
+--
+
+* Create folders that are specific enough to limit access
+
+--
+
+* Folder names should be human readable (meaningful and easy to understand)
+
+--
+
+* Folder names should be machine readable
+
+  + No spaces or punctuation
+  + `_` or `-` to separate within and between pieces of metadata
+
+--
+
+* Be consistent with capitalization
+
+--
+
+* Consider the use of an *archive* folder for old versions of files
+
+--
+
+* Don't keep duplicate copies of a document across different locations
+  
+    + It's too easy to forget to update all copies of a document
+
+---
+
+class: inverse
+
+# A true file path horror story
+
+--
+
+&lt;br&gt;
+&lt;br&gt;
+
+### *W:\Projects\Lab-All-Projects\Lab-Project A\ProjectA DATA2\Demographic Work\Old Files, Probably Good for Nothing - Dont Delete\Extreme Power\OldFiles, Maybe no good*
+
+---
+
+# Style Guide - Directory Structure - Example
+
+1. All project directories follow this hierarchical metadata structure  
+      - Level 1: Name of project  
+      - Level 2: Life cycle folders  
+      - Level 3: Time period/Data collection wave folders (if relevant)  
+      - Level 4: Participant specific folder
+      - Level 5: Specific content folder  
+      - Level 6: Archive folders  
+2. All folders should be named according to these rules  
+      - Meaningful name but no longer than 20 characters  
+      - No spaces or periods in folder names  
+      - Only use lower case letters  
+      - Use `-` to separate words  
+3. All previous versions of files must be placed into their respective *archive* folder
+      - README_changelog.txt placed in each folder to document changes between versions
+4. Keep only one copy of a file. Never duplicate a file in multiple locations.
+
+---
+
+class: inverse
+
+# Style Guide - Directory Structure - Example
+
+* 📁 project-new
+  * 📁 data
+      * 📂 cohort-1
+          * 📁 student
+              * 📁 assessment
+                  * 📂 raw
+                      * 📄 README_changelog.txt
+                      * 📁 archive
+                  * 📂 syntax
+                      * 📄 README_changelog.txt
+                      * 📁 archive
+                  * 📂 clean
+                      * 📄 README_changelog.txt
+                      * 📁 archive
+
+---
+
+# Style Guide - File Naming 
+
+.pull-left[
+### **We are all subject to "mood based naming"**
+]
+
+.pull-right[
+&lt;img src="img/phd.png" width="65%" height="55%" style="display: block; margin: auto;" /&gt;
+]
+
+.footnote[Source: [PhD Comics](http://phdcomics.com/comics/archive.php?comicid=1531)]
+
+---
+
+
+# Style Guide - File Naming
+
+* Allow you to locate files easier and prevent errors
+  + Which file names are more human readable and ensure you select the most recent document?
+      - **SG**: fs_stu_svy-proto_2020-10-01.docx **and** fs_stu_svy-proto_2020-10-22.docx
+      - **No SG**: survey protocol(1) FINAL.docx **and** survey protocol(1) CE edits.docx
+
+--
+
+* Allow your computer to find files easier
+  + Which path is more machine readable?
+      - **SG**: fs_stu_svy-protocol_2020-10-01.docx
+      - **No SG**: Student survey protocol.1.docx
+
+
+
+--
+
+* Maintain reproducibility in your data management tasks (consistent file names)
+  + Which file names maintain reproducibility across time?
+      - **SG**: tch_form_cohort1_time1.xlsx **and** tch_form_cohort1_time2.xlsx
+      - **No SG**: tch\_form\_cohort1\_time1.xlsx **and** cohort1\_time2\_&lt;span style="color: blue; "&gt;tch&lt;/span&gt;\_&lt;span style="color: blue; "&gt;form&lt;/span&gt;.xlsx
+      - **No SG**: tch\_form\_cohort1\_time1.xlsx **and** tch\_form\_cohort1&lt;span style="color: blue; "&gt;-&lt;/span&gt;time2.xlsx
+      - **No SG**: tch\_form\_cohort1\_time1.xlsx **and** tch\_form\_cohort1\_&lt;span style="color: blue; "&gt;T&lt;/span&gt;ime2.xlsx
+
+
+---
+
+# Style Guide - File Naming - Rules
+
+* Don't use spaces between words
+
+  + They can often break a URL when shared
+  
+
+  
+--
+
+* Don't use special characters **except** `-` and `_`
+ 
+  + No `.` `!` `\` `/` `"` `|` `*` `#` `:` `&gt;` `&lt;` `?` `^`
+  + They can have meaning within programming languages
+  
+--
+
+* Don't use file extensions in the name of the file (ex: `renaming_csv_files.xlsx`)
+
+  + Can cause confusion when searching for files
+
+
+--
+
+* Be intentional with capitalization 
+
+  + Use all lower case, or use capital letters at the start of all new words
+  
+
+---
+
+# Style Guide - File Naming - Rules
+
+* Make names descriptive
+
+  + A user should understand the contents without opening the file
+
+--
+
+* Pay attention to the number of characters to prevent hitting your path limit
+  + Ex: SharePoint has a path limit of 260 characters
+  + This is a real file name created by Qualtrics for a downloaded survey 😱: `Rural+Center+Montana+Study+(EIS+first)+2020-+Exemplar+Schools_March+19,+2021_07.49.sav`
+
+
+
+--
+
+* Consider keeping redundant metadata in the file name (ex: project name, wave)
+  
+  + Reduces confusion if you ever move the file
+  + Helps make your files searchable
+
+--
+
+* Don't use `\` or `.` in dates. Format dates in one of two sortable ways:
+  
+  + [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) or [RFC-3339](https://medium.com/easyread/understanding-about-rfc-3339-for-datetime-formatting-in-software-engineering-940aa5d5f68a) format: YYYY-MM-DD
+  + YYYYMMDD (this way reduces the number of characters but may be more difficult to read)
+
+---
+
+# Style Guide - File Naming - Rules
+
+* When adding versions, pick a format and stick to it. Consider left padding with 0.
+  
+  + v01, v02
+  
+--
+
+* If your files need to be run in sequential order, add the order number to the beginning of the file, again with leading zeros.
+
+  + 01\_ , 02\_, 03\_
+
+--
+
+* Choose abbreviations to use for common names (ex: stu = student)
+
+--
+
+* Pick an order for metadata
+
+  1. Project Name
+  2. Time
+  3. Participant
+  4. Measure
+  5. Version
+  
+
+
+
+
+&lt;code class ='r hljs remark-code'&gt;"&lt;span style='background-color:#ffff7f'&gt;fs&lt;/span&gt;`_`&lt;span style='background-color:#ffff7f'&gt;1819&lt;/span&gt;`_`&lt;span style='background-color:#ffff7f'&gt;teach&lt;/span&gt;`_`&lt;span style='background-color:#ffff7f'&gt;pinfo&lt;/span&gt;`_`&lt;span style='background-color:#ffff7f'&gt;v03&lt;/span&gt;.csv"&lt;/code&gt;
+
+---
+
+# Style Guide - File Naming - Example
+
+1. Never use spaces or special characters between words.
+1. Use `_` between metadata and `-` to separate words within metadata
+1. Use the following metadata file naming order:
+    - Order of use (if relevant--and always add a 0 before single digits)
+    - Cohort/Wave (if relevant)
+    - Participant
+    - Measure
+    - Further description
+    - Date (always add)--Note some schools of thought are to add this as #1 for sortability
+    - Version (if necessary--add version with v# and a leading 0)
+1. Format dates as YYYY-MM-DD
+1. Only use lower case letters
+1. Use the following abbreviations
+    - student = stu
+    - survey = svy
+    - cohort = c
+    - wave = w
+    - protocol = proto
+
+---
+
+# Style Guide - File Naming - Example
+
+* `01_c1_w1_stu_svy_cleaning-syntax_2021-01-22.R`
+* `01_c1_w1_stu_svy_cleaning-syntax_2021-01-22v02.R`
+* `02_c1_w1_stu_svy_report-syntax_2021-01-23.R`
+* `02_c1_w1_stu_svy_report-syntax_2021-02-05.R`
+
+&lt;br&gt;
+
+* `c1_w1_stu_svy_raw-download_2021-01-07.xlsx`
+* `c1_w1_stu_svy_clean-data_2021-01-10.sav`
+
+&lt;br&gt;
+
+* `stu_svy_proto_2021-02-08.docx`
+* `stu_svy_proto_2021-02-10.docx`
+
+&lt;br&gt;
+
+**Notice how easy these are to read** 😍 
+
+---
+
+# Style Guide - Versioning
+
+**Some sort of versioning of files is always necessary!**
+
+You have one of two options:
+
+1. Use versioning software/platform (Git, SharePoint, Box, OneDrive)
+
+  + No need to add version or date to your file name (or to your style guide)
+  + Every time you save a new copy you can add comments to explain the differences between versions - (only Git)
+  + You can go back into your history and restore previous versions
+
+--
+
+2. Create your own manual versioning
+
+  + By adding a date and/or a version number to your documents so you can track the most recent versions
+      - **I recommend to always manually version your data no matter what**
+  + Adding a README to your folders (ex: ReadMe_changelog.txt) where you add comments explaining the updates each time you save a new version
+
+
+---
+
+# Style Guide - Variable Naming
+
+
+* Improves interpretation and reduces human error
+  + Which variable name is more human readable?
+      - **SG**: *s_gender*
+      - **No SG**: *q5*
+
+--
+
+* Allows your computer to manipulate variables easier
+  + Which variable is more machine readable?
+      - **SG**: *toca33*
+      - **No SG**: *Family_problems_negatively_affect_this_childs_behavior_in_school*
+
+
+--
+
+* Maintain reproducibility in your data management tasks (consistent variable names)
+  + Which variable names maintain reproducibility across time?
+      - **SG**: &lt;span style="color: blue; "&gt;Time 1&lt;/span&gt;: *toca1* **and** &lt;span style="color: blue; "&gt;Time 2&lt;/span&gt;: *toca1*
+      - **No SG**: &lt;span style="color: blue; "&gt;Time 1&lt;/span&gt;: *toca1* **and** &lt;span style="color: blue; "&gt;Time 2&lt;/span&gt;: *toca_1*
+
+--
+
+* Improves data management across projects 
+  + Which variable names allow you to combine data across projects?
+      - **SG**: &lt;span style="color: blue; "&gt;Project A&lt;/span&gt;: *toca1* **and** &lt;span style="color: blue; "&gt;Project B&lt;/span&gt;: *toca1*
+      - **No SG**: &lt;span style="color: blue; "&gt;Project A&lt;/span&gt;: *toca1* **and** &lt;span style="color: blue; "&gt;Project B&lt;/span&gt;: *toca_1*
+
+
+
+---
+
+class: center, inverse
+
+# Choosing variable names is hard
+
+&lt;img src="img/var_name4.png" width="35%" style="display: block; margin: auto;" /&gt;
+Source: [&lt;span style="color: white; "&gt;Reddit&lt;/span&gt;](https://www.reddit.com/r/ProgrammerHumor/comments/8k9cmu/indeed_everytime/)
+
+
+
+---
+
+# Style Guide - Variable Names - Rules
+
+* Names should be meaningful
+  
+  + Instead of *q1* use *gender*
+
+--
+
+* Set a character limit
+
+  + Most statistical programs have limits (SPSS = 64, Stata = 32, SAS = 32)
+  
+
+
+--
+
+* If part of a measure, use the scale abbreviation in the name, plus the item number
+
+  + *bmtl01*
+  + *bmtl_fctsfirst_sum*
+
+--
+
+* Keep variable names the same across time in a project
+
+  + *bmtl01* in the fall and *bmtl01* again in the spring
+
+--
+
+* Keep variable names the same across projects
+
+  + Some people would like to keep variable names the same across the field
+  
+---
+
+# Style Guide - Variable Names - Rules
+
+* Don't use spaces or special characters (except `_`)
+  
+    + Even "-" is not allowed in most programs as it can be mistaken for minus sign
+
+--
+
+* Be consistent with delimiters and capitalization
+
+  + Pascal case (*ScaleSum*)
+  + Snake case (*scale_sum*)
+  + Camel case (*scaleSum*)
+  + Kebab case (*scale-sum*)--don't use this for variable names
+  + Train case (*Scale-Sum*)--don't use this for variable names
+
+--
+
+* Don't start a variable name with a number
+
+  + Most statistical programs won't even allow this
+
+
+---
+
+# Style Guide - Variable Names - Rules
+
+* Don't name variables any keywords or functions in programming languages
+
+  + Ex: *if*, *for*, *repeat* - R
+  + Ex: *or*, *with*, *to* - SPSS
+  
+--
+
+* All variable names in a study should be unique 
+
+  + *d_gender* = student gender reported by the district
+  + *s_gender* = student gender self-reported
+  + *t_gender* = teacher gender self-reported
+  
+--
+
+* Denote reverse coding in the variable name
+  
+  + *scale01* and *scale01_r*
+
+---
+
+# Style Guide - Variable Names - Rules
+
+
+* Choose abbreviations to use for common scale names and phrases
+
+  + scaled score = ss
+  + percentil rank = pr
+  + woodcock johnson test of cognitivie abilities = wj
+  
+--
+
+* Track different versions of variables
+
+  + If a question wording significantly changes or response options change for a variable mid-project after you've collected data, version that variable
+  + Ex: revised *scale1* becomes *scale1_v02*
+
+--
+
+* Consider including an indication of the instrument in your variable name
+
+  + Ex: s = student self-survey, r = teacher rating of student, t = teacher self-survey
+  + *s_anxiety01* and *r_toca01*
+  + This also helps make your variable names unique (ex: t_gender, s_gender)
+  
+---
+
+# Style Guide - Variable Names - Time
+
+If your data is longitudinal, you need to consider time in your variable naming
+
+Depending on how you plan to merge your data, there are 2 ways to account for time:
+
+1. **Concatenate time to your variables.**
+
+  + You do this if you plan to merge your data in wide format
+  + Every participant has one row of data
+  + For example for 3 waves of scale1 on the student self-survey
+      + *s_w1_bmtl01*, *s_w2_bmtl01*, *s_w3_bmtl01*
+  + If you are collecting cohorts, you may still want *cohort* added as a separate variable
+
+--
+
+2. **Create time variables and add them to your data.**
+
+  + You do this if you plan to append your data in long format.
+  + Every participant occurs in your data more than once for each wave of data collection.
+  + Ex: Add a *cohort* variable and a *wave* variable to your data and *s_bmtl01* stays the same variable name for every wave of data collection
+  
+
+---
+
+# Style Guide - Variable Names - Time
+
+Wide Format
+
+&lt;table class="table table-striped" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; stu_id &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; cohort &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; s_w1_bmtl01 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; s_w1_bmtl02 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; s_w2_btml01 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; s_w2_bmtl02 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 30415 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 30524 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 30530 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Long Format
+
+&lt;table class="table table-striped" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; stu_id &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; cohort &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; wave &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; s_bmtl01 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; s_bmtl02 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 30415 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 30415 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 30524 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 30524 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+# Style Guide - Variable Names
+
+You do not need to decide any of this right away:
+
+  * How you want to merge your data
+  * How you want to account for time
+  * How you want to account for the survey instrument
+
+--
+
+As you collect data, account for all relevant metadata in your file name:
+
+  * `c1_w1_stu_svy_clean-data_2021-01-10.sav`
+  * Because of my style guide, I know this file is cohort 1, wave 1, student, self-report survey
+  * When I go to finally merge my data, I can make my decisions then about how to account for time or instrument
+  * It's very easy to add these variables or append this information to existing variables at any point
+
+--
+
+&lt;br&gt;
+
+If you choose to merge in a long format and later want your data in wide format, it is very easy to switch back and forth between long and wide format in statistical programs. Don't worry!
+
+Whatever you finally decide on, document your rule in your **style guide**
+
+---
+
+# Style Guide - Variable Names - Example
+
+&lt;img src="img/varnames.png" width="45%" style="display: block; margin: auto;" /&gt;
+
+.footnote[Source: Dr. Aaron Thompson, STARS study, [MPSI](http://moprevention.org/)]
+
+---
+
+# Style Guide - Value Coding - Rules
+
+* Keep values consistent within identical variables across time
+
+  + **Do**: Use 1 = yes, 0 = no for *stress02* in wave 1, and 1 = yes, 0 = no for wave 2
+      + **Don't**: Use 1 = yes, 0 = no for *stress02* in wave 1, and 1 = no, 2 = yes for wave 2
+  
+--
+
+* Keep values consistent across the project
+  
+  + **Do**: Always use 1=yes; 0=no
+      + **Don't**: For some variables use 2=yes; 1=no, for other variables 1=yes; 0=no
+  + **Do**: Always use m=male, f=female, n=non-binary
+      + **Don't**: Switch between 'M', 'm', and 'male' to denote male
+    
+--
+
+* Make sure scale response option ordering makes sense
+
+  + **Do**: Strongly Disagree = 1; Disagree = 2; Agree =3; Strongly Agree = 4
+      + **Don't**: Strongly Disagree = 1; Disagree = 3; Agree = 4; Strongly Agree = 2
+    
+---
+
+# Style Guide - Value Coding - Rules
+
+* Define missing values
+
+  + You can decide to leave all missing values as NA or NULL
+  + Or you can assign missing values based on their properties
+      - Use extreme values that do not actually occur in your data
+      - Do not use character values in numeric fields
+      
+
+&lt;img src="img/missing.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+.footnote[Source: [NCES](https://nces.ed.gov/pubs2015/2015074.pdf)]
+
+---
+
+# Protocols
+
+*Also called Standard Operating Procedures (SOPs) are document/s to record all your procedures as well as changes made to those procedures throughout the grant.*
+
+Purpose:
+
+* For you to document every decision you make so that over time you both **remember what you did and why** as well as **implement your procedures with fidelity**.
+
+* To document roles and responsibilities for each procedure
+
+.pull-left[
+* Have one protocol for each piece of data that you collect, and include steps from instrument creation all the way through data capture
+  - Qualtrics Teacher Survey
+  - Paper Student Assessment
+  - District Data
+  - Classroom Observations
+]
+
+.pull-right[
+* Have protocols for data cleaning processes
+  - Rules for dealing with duplicate surveys
+  - How to lay out a syntax file
+]
+
+**Can be created in Word, PDF, txt, Markdown**
+  
+---
+
+# Protocols
+
+The protcol can either be one large document, with a table of contents, or stand alone documents.
+
+Each protocol should *begin* with:
+
+* Title
+* Date the protocol was made   
+* Who made the protocol  
+* Purpose of the protocol  
+* Any related documents or research behind this protocol  
+
+**Then write up the details about the procedure/protocol.**
+
+--
+
+For any *changes* to the protocol after the project has begun add the following below the original protocol section:  
+ * Revision date  
+ * Who decided on the revision  
+ * Any rationale behind the revision  
+ * Any related documents or research behind the revision 
+
+---
+
+# Recall this Qualtrics Flowchart
+
+&lt;br&gt;
+
+![](img/qualtrics_flow.PNG)
+
+---
+
+background-image: url(img/sop_combined2.PNG)
+background-size: contain
+
+---
+
+# Timeline
+
+*A planning tool for seeing what data is collected and when. Allows the data team to know when to expect to receive data*
+
+**Can be created in any tool that helps you display the information**
+
+&lt;img src="img/timeline.PNG" width="750px" style="display: block; margin: auto;" /&gt;
+
+.footnote[Source: [MPSI](https://moprevention.org/)]
+
+---
+
+&lt;img src="img/timeline2.PNG" width="850px" style="display: block; margin: auto;" /&gt;
+
+.footnote[Source: [IES](https://ies.ed.gov/ncee/pubs/2022004/pdf/2022004.pdf)]
+
+---
+
+background-image: url(img/README2.PNG)
+background-position: 95% 85%
+background-size: 35%
+
+# ReadMe
+
+*A plain text document that contains information about your files. May also be seen written as README.*
+
+They are most known for their use in computer science, but have become more prevalent in research. 
+
+Can serve many purposes:
+- Descriptive information about the purpose and organization of a dataset
+- Information about a set of files in a directory
+- **Changelog of differences between versions of a file**
+- Steps and/or files in a process
+- Data cleaning plan
+
+&lt;br&gt;
+
+**Can be in many formats including txt, PDF, Word, Markdown, Excel**
+
+.footnote[Source: [University of Michigan](https://deepblue.lib.umich.edu/bitstream/handle/2027.42/154114/Personal%20README%20Files-%20User%20Manuals%20for%20Library%20Staff.pdf?sequence=1)]
+
+---
+
+# ReadMe - Changelog
+
+&lt;img src="img/changelog.PNG" width="1000px" style="display: block; margin: auto;" /&gt;
+
+.footnote[Source: [Wheel of Names](https://wheelofnames.com/changelog)]
+
+
+
+---
+
+# Data Dictionary
+
+*A rectangular format collection of names, definitions, and attributes about data elements that are being used or captured in a database, information system, or part of a research project. Some may refer to this as a codebook.*
+
+Purpose:
+* Provides a roadmap for instrument creation
+  - Tells you how to name variables and code values in an instrument like Qualtrics
+* Enforces data standards
+* Creates consistency across the members of the team and across the project over time
+* Can be integrated into data cleaning
+  - Renaming, labeling, calculations
+* Assists in data validation
+  - Checking columns, types, and ranges
+* Communicates the contents of dataset
+  - Do we have everything we should in our data, based on our data dictionary
+
+
+**Can be created in Excel or other rectangular formats**
+
+.right[Source: [UC Merced](https://library.ucmerced.edu/data-dictionaries)]
+
+---
+
+# Data Dictionary - Elements
+
+.pull-left[
+
+* Variable Name
+
+* Variable Label
+
+* Associated scale/measure
+  + Group your variables by scale/measure
+
+* Associated form (Student survey, teacher rating of student)
+
+* Value range or value codes ([1-99] or 0=No, 1=Yes)
+
+* Measurement unit (numeric, string, date, etc.)
+]
+
+.pull-right[
+
+* Missing data codes
+
+* Variable universe (Who gets this question? Is there skip logic?)
+
+* What time periods does this variable exist
+
+* Reverse coding
+
+* Calculations (composite variables, scores)
+* Notes (such as versions/changes to this variable)
+
+* Order number of the question on the form
+]
+
+---
+
+# Data Dictionary 
+
+In order to start a data dictionary, you should gather the following information:
+
+- What measures are we collecting? (Ex: Student Assessment, Teacher Observation, Teacher Survey, Principal Interview)
+- What are the items/scales included?
+  + Get a copy of the original measure and make sure the question wording is accurate. Make sure the subscale you've assigned the question to is accurate
+- What is your variable naming protocol? (Check your style guide)
+- Do your items/scales have pre-determined value coding rules or can we assign our own? What is our value coding protocol? (Check your style guide)
+
+--
+
+It’s good to also consider starting to document the variables you aren’t collecting but you are assigning or deriving.
+
+- Cohort/Group
+- Time period
+- Treatment
+- Variables do you plan to derive (ex: mean scores, collapsed categorical variables)
+
+---
+
+# Data Dictionary - Example
+
+1. Used student work to plan for mathematics instruction 
+2. Examined your teaching materials/assignments in relation to the Math standards
+
+&lt;br&gt;
+
+|measure|scale|var_name|label|type|values|recode|
+|------|--------|--------|-----|----|------|------|
+|cip|?|?| Used student work to plan for mathematics instruction | ? | ?| ? |
+|cip|?| ?| Examined your teaching materials/assignments in relation to the Math standards | ? |?| ?|
+
+
+
+---
+
+&lt;img src="img/cip_measure.PNG" width="1000px" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Data Dictionary - Example
+
+|measure|scale|var_name|label|type|values|recode|
+|------|--------|--------|-----|----|------|------|
+|cip|Individual Teacher Instructional Practices|CIP_StudWork| Used student work to plan for mathematics instruction | ? | ?| ? |
+|cip|Individual Teacher Instructional Practices|CIP_TeachMath| Examined your teaching materials/assignments in relation to the Math standards | ? |?| ?|
+|cip|Individual Teacher Instructional Practices| CIP_Pace | Used the pacing guides to plan for mathematics instruction | ? | ? | ? |
+
+---
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src="img/cip_measure2.PNG" width="1000px" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Data Dictionary - Example
+
+|measure|scale|var_name|label|type|values|recode|
+|------|--------|--------|-----|----|------|------|
+|cip|Individual Teacher Instructional Practices| CIP_StudWork| Used student work to plan for mathematics instruction | numeric | 1 = Never, 2 = Less than once a month, 3 = 2 or 3 times a month, 4 = Once or twice a week, 5 = Daily | NA |
+|cip|Individual Teacher Instructional Practices| CIP_TeachMat | Examined your teaching materials/assignments in relation to the Math | numeric | 1 = Never, 2 = Less than once a month, 3 = 2 or 3 times a month, 4 = Once or twice a week, 5 = Daily | NA|
+|cip|Individual Teacher Instructional Practices| CIP_Pace | Used the pacing guides to plan for mathematics instruction | numeric  | 1 = Never, 2 = Less than once a month, 3 = 2 or 3 times a month, 4 = Once or twice a week, 5 = Daily  | NA |
+
+
+
+---
+
+class: inverse, center
+background-image: url(img/data-dictionary2v02.PNG)
+background-size: contain
+
+# Data Dictionary - Survey Complete
+
+
+---
+
+background-image: url(img/data-dictionary3.PNG)
+background-size: contain
+
+class: inverse
+
+# Data Dictionary - Extant Data
+
+
+
+---
+
+# Comparison to Codebook
+
+*Contains information intended to be complete and self-explanatory for each variable in a data file, such as the wording and coding of the item, and the underlying construct - [FORRT](https://forrt.org/glossary/codebook/)*
+
+.pull-left[
+Purpose:
+  * Without ever having to open the data file, a user can see summary statistics about the data and make decisions based on that information.
+  
+**Can be created in txt, PDF, Word, Markdown**
+
+]
+
+&lt;img src="img/codebook2.PNG" width="450px" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+
+.footnote[Source: [Child and Family Data Archive](https://www.childandfamilydataarchive.org/cfda/archives/CFDA/studies/38290/datadocumentation#)]
+
+---
+
+
+background-image: url(img/document.jpg)
+background-position: 95% 55%
+background-size: 600px
+
+# Key Takeaways
+
+.pull-left[
+### 1. Document early
+### 2. Use your documentation as a guide
+### 3. Keep documentation updated
+]
+
+.footnote[Source: [meme-arsenal.com](https://www.meme-arsenal.com/en/create/meme/1723091)]
+
+---
+
+class: inverse, middle, center
+
+# Questions?
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
