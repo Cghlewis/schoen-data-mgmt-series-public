@@ -1,6 +1,6 @@
 ---
 title: "Data Management Overview: Session 4"
-subtitle: "Training for Schoen Research"  
+subtitle: "Training for Schoen Research" 
 author: "<br> Crystal Lewis"
 date: '2022-06-23 (updated: `r Sys.Date()`)'
 output:
@@ -995,18 +995,6 @@ R:
 "C:\\\Users\\\Crystal\\\Desktop\\\schoen_example_files\\\
 data\\\tch_survey.csv"
 ]
-
-
-...
-
-If we copy and paste our path from Windows into R it will not work
-
-The backslash is an "escape" character in R and so R does not interpret it as part of our path
-
-We will need to either change all of our back slashes to forward slashes or add double back slashes to escape our backslash
-
-And then I could use this full, absolute path in my read_csv function or my read_excel function
-
 
 ---
 

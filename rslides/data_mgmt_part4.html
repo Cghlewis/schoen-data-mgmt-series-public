@@ -471,15 +471,16 @@ head(pet_names)
 
 ```
 # A tibble: 6 x 7
-  license_issue_date license_number animals_name species primary_breed          
-  &lt;chr&gt;              &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;                  
-1 November 16 2018   8002756        Wall-E       Dog     Mixed Breed, Medium (u~
-2 November 11 2018   S124529        Andre        Dog     Terrier, Jack Russell  
-3 November 21 2018   903793         Mac          Dog     Retriever, Labrador    
-4 November 23 2018   824666         Melb         Cat     Domestic Shorthair     
-5 December 30 2018   S119138        Gingersnap   Cat     Domestic Shorthair     
-6 December 16 2018   S138529        Cody         Dog     Retriever, Labrador    
-*# ... with 2 more variables: secondary_breed &lt;chr&gt;, zip_code &lt;chr&gt;
+  license_issue_date license_number animals_name species prima~1 secon~2 zip_c~3
+  &lt;chr&gt;              &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+1 November 16 2018   8002756        Wall-E       Dog     Mixed ~ Mix     98108  
+2 November 11 2018   S124529        Andre        Dog     Terrie~ Dachsh~ 98117  
+3 November 21 2018   903793         Mac          Dog     Retrie~ &lt;NA&gt;    98136  
+4 November 23 2018   824666         Melb         Cat     Domest~ &lt;NA&gt;    98117  
+5 December 30 2018   S119138        Gingersnap   Cat     Domest~ Mix     98144  
+6 December 16 2018   S138529        Cody         Dog     Retrie~ &lt;NA&gt;    98103  
+*# ... with abbreviated variable names 1: primary_breed, 2: secondary_breed,
+#   3: zip_code
 ```
 
 
@@ -494,7 +495,7 @@ str(pet_names)
 ```
 
 ```
-*spec_tbl_df [52,519 x 7] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+*spc_tbl_ [52,519 x 7] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ license_issue_date: chr [1:52519] "November 16 2018" "November 11 2018" "November 21 2018" "November 23 2018" ...
  $ license_number    : chr [1:52519] "8002756" "S124529" "903793" "824666" ...
  $ animals_name      : chr [1:52519] "Wall-E" "Andre" "Mac" "Melb" ...
@@ -528,20 +529,20 @@ print(pet_names)
 
 ```
 *# A tibble: 52,519 x 7
-   license_issue_date license_number animals_name species primary_breed         
-*   &lt;chr&gt;              &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;                 
- 1 November 16 2018   8002756        Wall-E       Dog     Mixed Breed, Medium (~
- 2 November 11 2018   S124529        Andre        Dog     Terrier, Jack Russell 
- 3 November 21 2018   903793         Mac          Dog     Retriever, Labrador   
- 4 November 23 2018   824666         Melb         Cat     Domestic Shorthair    
- 5 December 30 2018   S119138        Gingersnap   Cat     Domestic Shorthair    
- 6 December 16 2018   S138529        Cody         Dog     Retriever, Labrador   
- 7 October 04 2017    580652         Millie       Dog     Terrier, Boston       
- 8 August 09 2018     S142558        Sebastian    Cat     Domestic Shorthair    
- 9 August 20 2018     S142546        Madeline     Cat     Domestic Shorthair    
-10 December 08 2018   S123830        Cleo         Cat     Domestic Shorthair    
-# ... with 52,509 more rows, and 2 more variables: secondary_breed &lt;chr&gt;,
-#   zip_code &lt;chr&gt;
+   license_issue_date license_number animals_n~1 species prima~2 secon~3 zip_c~4
+*   &lt;chr&gt;              &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+ 1 November 16 2018   8002756        Wall-E      Dog     Mixed ~ Mix     98108  
+ 2 November 11 2018   S124529        Andre       Dog     Terrie~ Dachsh~ 98117  
+ 3 November 21 2018   903793         Mac         Dog     Retrie~ &lt;NA&gt;    98136  
+ 4 November 23 2018   824666         Melb        Cat     Domest~ &lt;NA&gt;    98117  
+ 5 December 30 2018   S119138        Gingersnap  Cat     Domest~ Mix     98144  
+ 6 December 16 2018   S138529        Cody        Dog     Retrie~ &lt;NA&gt;    98103  
+ 7 October 04 2017    580652         Millie      Dog     Terrie~ &lt;NA&gt;    98115  
+ 8 August 09 2018     S142558        Sebastian   Cat     Domest~ Mix     98122  
+ 9 August 20 2018     S142546        Madeline    Cat     Domest~ Mix     98105  
+10 December 08 2018   S123830        Cleo        Cat     Domest~ &lt;NA&gt;    98199  
+# ... with 52,509 more rows, and abbreviated variable names 1: animals_name,
+#   2: primary_breed, 3: secondary_breed, 4: zip_code
 ```
 
 
@@ -1104,18 +1105,6 @@ R:
 data\\\tch_survey.csv"
 ]
 
-
-...
-
-If we copy and paste our path from Windows into R it will not work
-
-The backslash is an "escape" character in R and so R does not interpret it as part of our path
-
-We will need to either change all of our back slashes to forward slashes or add double back slashes to escape our backslash
-
-And then I could use this full, absolute path in my read_csv function or my read_excel function
-
-
 ---
 
 # Create Relative Paths
@@ -1468,10 +1457,11 @@ data %&gt;%
 
 ```
 # A tibble: 2 x 7
-  tch_id dupe_count start_date consent dist_sch_name            degree yrs_teach
-   &lt;dbl&gt;      &lt;int&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;                     &lt;dbl&gt; &lt;chr&gt;    
-1   1234          2 2022-05-15       1 "Kirkwood - Nipher Midd~      1 "5 yrs"  
-2   1234          2 2022-05-15      NA ""                           NA ""       
+  tch_id dupe_count start_date consent dist_sch_name              degree yrs_t~1
+   &lt;dbl&gt;      &lt;int&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;                       &lt;dbl&gt; &lt;chr&gt;  
+1   1234          2 2022-05-15       1 "Kirkwood - Nipher Middle~      1 "5 yrs"
+2   1234          2 2022-05-15      NA ""                             NA ""     
+# ... with abbreviated variable name 1: yrs_teach
 ```
 
 ]
